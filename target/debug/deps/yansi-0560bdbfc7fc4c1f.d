@@ -1,0 +1,13 @@
+/Users/jpec57/Perso/jpec-website/target/debug/deps/yansi-0560bdbfc7fc4c1f.rmeta: /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/lib.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/docify.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/macros.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/windows.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/paint.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/style.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/color.rs
+
+/Users/jpec57/Perso/jpec-website/target/debug/deps/libyansi-0560bdbfc7fc4c1f.rlib: /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/lib.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/docify.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/macros.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/windows.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/paint.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/style.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/color.rs
+
+/Users/jpec57/Perso/jpec-website/target/debug/deps/yansi-0560bdbfc7fc4c1f.d: /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/lib.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/docify.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/macros.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/windows.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/paint.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/style.rs /Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/color.rs
+
+/Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/lib.rs:
+/Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/docify.rs:
+/Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/macros.rs:
+/Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/windows.rs:
+/Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/paint.rs:
+/Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/style.rs:
+/Users/jpec57/.cargo/registry/src/github.com-1ecc6299db9ec823/yansi-0.4.0/src/color.rs:
