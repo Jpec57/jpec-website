@@ -4,19 +4,12 @@ import './App.css';
 
 const App: React.FC = () => {
 
-  fetch('http://localhost:8000/data')
+  fetch('http://localhost:8000/json')
   .then(res => res.json())
   .then((data) => {
     console.log(data);
   })
   .catch(console.log);
-
-  // fetch('http://jsonplaceholder.typicode.com/users')
-  //       .then(res => res.json())
-  //       .then((data) => {
-  //         console.log(data);
-  //       })
-  //       .catch(console.log);
 
   return (
     <div className="App">
