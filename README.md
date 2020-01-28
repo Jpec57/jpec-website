@@ -4,8 +4,13 @@ This is a project where I learn Rust Programming and how to build hooks in React
 # Install 
 
 https://medium.com/sean3z/building-a-restful-crud-api-with-rust-1867308352d8
+
 http://diesel.rs/guides/getting-started/
 
+https://www.steadylearner.com/blog/read/How-to-use-CORS-and-OPTIONS-HTTP-request-with-Rust-Rocket
+
+
+https://cprimozic.net/blog/rust-rocket-cloud-run/
 
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
