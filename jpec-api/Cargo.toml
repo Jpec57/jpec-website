@@ -11,3 +11,4 @@ rocket = "0.4.2"
 rocket_codegen = "0.4.2"
 diesel = { version = "1.0.0", features = ["postgres"] }
 dotenv = "0.9.0"
+#rocket_cors = "0.2.3"
