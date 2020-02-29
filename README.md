@@ -18,3 +18,21 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 cargo install diesel_cli
 ```
+
+
+# TODO
+
+Install via yarn instead of script in header (tensorflow)
+
+
+
+# TensorFlow 
+
+Intuitively Understanding Convolutions for Deep Learning 
+https://towardsdatascience.com/intuitively-understanding-convolutions-for-deep-learning-1f6f42faee1
+
+Machine Learning courses
+https://developers.google.com/machine-learning/crash-course/prereqs-and-prework
+
+Tutorial for digit recognizer
+https://gogul.dev/software/digit-recognizer-tf-js
