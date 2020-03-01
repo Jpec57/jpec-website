@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const MathPage: React.FC = () => {
-  const [count, setCounter] = useState(0); 
-
   return (
     <div className="App">
       <header className="App-header">

@@ -1,27 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 const FirstPage: React.FC = () => {
-  // const [count, setCounter] = useState(0); 
-
-  // fetch('http://localhost:8000/json')
-  // .then(res => res.json())
-  // .then((data) => {
-  //   console.log(data);
-  // })
-  // .catch(console.log);
-
   return (
     <div className="App">
       <header className="App-header">
-        {/* <p>
-          First page
-          This is my project: {count}
-        </p>
-        <button onClick={()=> setCounter(count + 1)}>
-          Increment
-        </button> */}
       </header>
       <div>
         <span>This is a test</span>
+        <div id="canvas_box" className="canvas-box">
+        </div>
+        <div id="chart_box" className="chart-box"></div>
+
+        <button id="clear-button" className="btn btn-dark">Clear</button>
+        <button id="predict-button" className="btn btn-dark">Predict</button>
       </div>
     </div>
   );

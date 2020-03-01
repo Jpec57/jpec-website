@@ -18,37 +18,23 @@ import MathPage from './pages/Math/MathPage';
 export default function App() {
     return (
       <Router>
-        {/* <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/japanese">Japanese</Link>
-              </li>
-              <li>
-                <Link to="/math">Math</Link>
-              </li>
-            </ul>
-          </nav>
-        </div> */}
 <section id="header">
 					<div className="container">
 							<h1 id="logo"><a href="index.html">Jpec website</a></h1>
 							<p>This website is created to learn Rust and show you what I am currently fond of.</p>
 							<nav id="nav">
 								<ul>
-									<li><a className="icon solid fa-home" href="index.html">
-                    <span>Homepage</span></a></li>
 									<li>
-										<a href="#" className="icon fa-globe">
-                      <span>Japanese</span></a>
-									</li>
-									<li><a className="icon solid fa-calculator" href="left-sidebar.html"><span>Maths</span></a></li>
+                  <Link to="/" className="icon solid fa-home">HomePage</Link>
+                    </li>
+                  <li>
+                <Link to="/japanese" className="icon solid fa-globe-asia">Japanese</Link>
+              </li>
+              <li>
+                <Link to="/japanese" className="icon solid fa-calculator">Maths</Link>
+              </li>
 								</ul>
 							</nav>
-
 					</div>
 				</section>
         <Switch>

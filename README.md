@@ -24,6 +24,7 @@ cargo install diesel_cli
 
 Install via yarn instead of script in header (tensorflow)
 
+Do not use Jquery to draw elements
 
 
 # TensorFlow 
@@ -36,3 +37,4 @@ https://developers.google.com/machine-learning/crash-course/prereqs-and-prework
 
 Tutorial for digit recognizer
 https://gogul.dev/software/digit-recognizer-tf-js
+https://bensonruan.com/handwritten-digit-recognition-with-tensorflow-js/
