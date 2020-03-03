@@ -31,7 +31,7 @@ export default function App() {
                 <Link to="/japanese" className="icon solid fa-globe-asia">Japanese</Link>
               </li>
               <li>
-                <Link to="/japanese" className="icon solid fa-calculator">Maths</Link>
+                <Link to="/math" className="icon solid fa-calculator">Maths</Link>
               </li>
 								</ul>
 							</nav>
