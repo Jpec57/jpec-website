@@ -2,8 +2,8 @@ import React from 'react';
 
 const SecondPage: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="content">
+      <header className="header-content">
         <p>
           This is a second page
         </p>

@@ -22,7 +22,7 @@ export default function App() {
 					<div className="container">
 							<h1 id="logo"><a href="index.html">Jpec website</a></h1>
 							<p>This website is created to learn Rust and show you what I am currently fond of.</p>
-							<nav id="nav">
+							<nav id="nav" className="navbar navbar-default">
 								<ul>
 									<li>
                   <Link to="/" className="icon solid fa-home">HomePage</Link>

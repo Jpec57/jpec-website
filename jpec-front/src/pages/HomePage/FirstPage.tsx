@@ -1,8 +1,8 @@
 import React from 'react';
 const FirstPage: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="content">
+      <header className="header-content">
       </header>
       <div>
         <span>This is a test</span>
