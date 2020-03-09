@@ -1,0 +1,22 @@
+.container.flex-horizontal {
+    margin-left: 1em;
+
+    .table-content {
+        margin-right: 1em;
+        flex: 2;
+        background-color: darkslategrey;
+        border-radius: 10px;
+        padding: 10px 5px;
+        justify-items: center;
+
+        .table-content-enum{
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+        }
+    }
+    .main{
+        flex: 5;
+    }
+}
+

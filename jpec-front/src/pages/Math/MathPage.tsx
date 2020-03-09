@@ -3,12 +3,26 @@ const Latex = require('react-latex');
 
 const MathPage: React.FC = () => {
   return (
-    <div className="content">
-      <header className="header-content">
+    <div className="container flex-horizontal">
+
+      <div className="table-content">
+        <div className="table-content-enum">
+        <h3>Sommaire</h3>
+      <h4>Introduction</h4>
+      <ul>
+        <li>Definitions</li>
+      </ul>
+        </div>
+      
+      
+  </div>
+
+
+  <div className="main">
+  <header className="content-header">
         <h1>
           Apprentisage profond
         </h1>
-
       </header>
       <h3>
           Introduction
@@ -74,6 +88,8 @@ const MathPage: React.FC = () => {
         </p>
 
         <Latex>What is $(3\times 4) \div (5-3)$</Latex>
+  </div>
+
     </div>
   );
 }

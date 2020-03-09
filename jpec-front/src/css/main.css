@@ -2703,7 +2703,7 @@ input, select, textarea {
 
 	}
 	
-	.content{
+	.container{
 		margin-left: 4em;
 		margin-right: 4em;
 		margin-bottom: 4em;
@@ -2713,7 +2713,17 @@ input, select, textarea {
 		text-indent: 15px;
 	}
 
-	.header-content{
+	.content-header{
 		font-size: 24px;
 		margin-bottom: 20px;
+	}
+
+	.flex-horizontal{
+		display: flex;
+		flex-direction: row;
+	}
+	
+	.flex-vertical{
+		display: flex;
+		flex-direction: column;
 	}
