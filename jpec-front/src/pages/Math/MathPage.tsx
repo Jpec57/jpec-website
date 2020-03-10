@@ -1,11 +1,23 @@
 import React from 'react';
+import { useWindowSize } from '../../hooks/useWindowSize';
 const Latex = require('react-latex');
 
-const MathPage: React.FC = () => {
-  return (
-    <div className="container flex-horizontal">
 
-      <div className="table-content">
+
+
+
+const MathPage: React.FC = () => {
+  const size = useWindowSize();
+  
+  const renderTableContent = (width: number | undefined) => {
+    if (typeof width === "undefined" || (width != null && width < 650)){
+      return (
+        <div className="flex-1">
+        </div>
+      );
+    }
+      return (
+        <div className="table-content">
         <div className="table-content-enum">
         <h3>Sommaire</h3>
       <h4>Introduction</h4>
@@ -17,9 +29,26 @@ const MathPage: React.FC = () => {
         <li>Apprentissage profond</li>
       </ul>
         </div>
-      
-      
   </div>
+      );
+  };
+
+  const renderRightMargin = (width: number | undefined) => {
+    if (typeof width === "undefined" || (width != null && width < 650)){
+      return (
+        <div className="flex-1"></div>
+      );
+    }
+    return (
+      <div className="flex-2"></div>
+    );
+  }
+
+  return (
+
+    <div className="container flex-horizontal">
+
+    {renderTableContent(size.width)}
 
 
   <div className="main">
@@ -93,8 +122,8 @@ const MathPage: React.FC = () => {
 
         <Latex>What is $(3\times 4) \div (5-3)$</Latex>
   </div>
-
-    </div>
+      {renderRightMargin(size.width)}
+      </div>
   );
 }
 

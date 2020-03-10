@@ -2703,9 +2703,10 @@ input, select, textarea {
 
 	}
 	
-	.container{
-		margin-left: 4em;
-		margin-right: 4em;
+	.header.container{
+		margin: auto;
+		/* margin-left: 4em; */
+		/* margin-right: 4em; */
 		margin-bottom: 4em;
 	}
 
@@ -2721,9 +2722,24 @@ input, select, textarea {
 	.flex-horizontal{
 		display: flex;
 		flex-direction: row;
+		width: 100%;
 	}
 	
 	.flex-vertical{
 		display: flex;
 		flex-direction: column;
+	}
+
+	@media screen and (max-width: 400px){
+		#nav > ul > li {
+			display: flex;
+			justify-content: center;
+			padding-right: 2.5em;
+
+			&:last-child{
+				padding-right: 2.5em;
+			}
+		}
+
+		
 	}

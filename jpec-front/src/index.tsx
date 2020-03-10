@@ -4,7 +4,7 @@ import './index.css';
 import './pages/Math/MathPage.scss';
 import * as serviceWorker from './serviceWorker';
 import './css/fontawesome-all.min.css'
-import './css/main.css'
+import './css/main.scss'
 
 import {
   BrowserRouter as Router,
