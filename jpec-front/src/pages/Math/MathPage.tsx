@@ -22,11 +22,11 @@ const MathPage: React.FC = () => {
         <h3>Sommaire</h3>
       <h4>Introduction</h4>
       <ul>
-        <li>Definitions</li>
-        <li>Approche fondée sur la connaissance</li>
-        <li>Apprentissage automatique</li>
-        <li>Apprentissage de représentition</li>
-        <li>Apprentissage profond</li>
+        <li><a href="#definition-anchor">Definitions</a></li>
+        <li><a href="#knowledge-based-anchor">Approche fondée sur la connaissance</a></li>
+        <li><a href="#automatic-learning-anchor">Apprentissage automatique</a></li>
+        <li><a href="#representation-learning-anchor">Apprentissage de représentation</a></li>
+        <li><a href="#deep-learning-anchor">Apprentissage profond</a></li>
       </ul>
         </div>
   </div>
@@ -60,7 +60,7 @@ const MathPage: React.FC = () => {
       <h3>
           Introduction
         </h3>
-        <p>
+        <p className="definition-anchor">
 
           L'apprentissage profond, autrement appelé <i>Deep learning</i> est un ensemble de méthodes d'apprentissage automatique tentant de tirer
           des informations à partir de données brutes pour les modéliser. 
@@ -75,7 +75,7 @@ const MathPage: React.FC = () => {
           d'en comprendre tous les rouages, mais bien simplement de s'en inspirer.
 
         </p>
-        <p>
+        <p id='knowledge-based-anchor'>
           Durant les premiers balbutiements de l'IA, on chercha à codifier les connaissances du monde en un langage 
           formel sur lequel l'ordinateur pouvait raisonner en utilisant des règles d'inférences logiques: c'est <b>l'approche
           fondée sur la connaissance.</b>
@@ -85,13 +85,13 @@ const MathPage: React.FC = () => {
           Toutefois, les difficultés de mémoire et de complexité d'encodage amenèrent rapidement les programmes à tenter d'exploiter 
           directement les données brutes pour en extraire eux même des modèles.
         </p>
-        <p>
+        <p id='automatic-learning-anchor'>
           <b>L'apprentissage automatique</b> permet de s'affranchir de l'énumération de tous les comportements possibles
           en se basant sur une représentation des données qui leur est transmise. 
           La performance de ces algorithmes dépendaient beaucoup de la représentation des données transmises. On
           communique à l'ordinateur les points clés à prendre en compte pour une décision. 
         </p>
-        <p>
+        <p id='automatic-learning-limit-anchor'>
           Très perfomant pour bon nombre
           de tâches, il n'en reste pas moins impossible à appliquer à divers problématiques telles que la reconnaissance
           d'une roue sur une image. En effet, notre expérience en tant qu'être vivant nous a permis, au travers de milliers
@@ -99,12 +99,12 @@ const MathPage: React.FC = () => {
           reviendrait à oublier les ombres pouvant perturber l'image, les objets pouvant cacher la vue totale de la roue...
 
         </p>
-        <p>
-          <b><span id='representation-learning'>L'apprentisage de représentation</span></b> permet de découvrir les caractéristiques composant la donnée. Le but 
+        <p id='representation-learning-anchor'>
+          <b>L'apprentisage de représentation</b> permet de découvrir les caractéristiques composant la donnée. Le but 
           de ce type d'algorithme est généralement de différencier les facteurs de variation (sources d'influence de la donnée)
           
         </p>
-        <p>
+        <p id='representation-learning-limitation-anchor'>
           Lorsqu'il est presque aussi difficile d'obtenir une représentation que de résoudre le problème initial,
           l'apprentisage par représentation ne semble pas suffire.
 
@@ -112,7 +112,7 @@ const MathPage: React.FC = () => {
           humain afin d'en apercevoir les nuances comme pourrait l'être la distinction de l'accent d'une personne
           l'apprentissage profond est nécessaire.
           </p>
-        <p>
+        <p id="deep-learning-anchor">
           <b>L'apprentissage profond</b> permet quant à lui de déduire des représentations complexes à partir de
           représentations simples et intermédiaires. A partir des différences de pixels, 
           le programme peut distinguer les coins et les contours présents sur l'image pour déterminer 
@@ -128,3 +128,14 @@ const MathPage: React.FC = () => {
 }
 
 export default MathPage;
+/*
+Récupérer les données
+Nettoyer (consistantes et sans valeur abbérante)
+Explorer 
+Créer le modèle statistique
+Evaluer la qualité du modèle (à représenter)
+Déployer l'algorithme (en production)
+
+
+chaque donnée observée est l'expression d'une variable aléatoire générée par une distribution de probabilité
+*/

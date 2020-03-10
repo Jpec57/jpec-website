@@ -1,5 +1,6 @@
 .container.flex-horizontal {
     .table-content {
+        margin-left: 1em;
         margin-right: 4em;
         flex: 2;
         background-color: #303d42;
@@ -14,6 +15,14 @@
             margin-right: 10px;
 
             ul {
+                list-style-type: none;
+                a {
+                    &:link{
+                        text-decoration: none !important;
+                    }
+                    color:white;
+                    cursor: pointer;
+                }
             }
         }
     }
