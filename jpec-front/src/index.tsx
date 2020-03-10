@@ -13,7 +13,7 @@ import {
   Link
 } from "react-router-dom";
 import FirstPage from './pages/HomePage/FirstPage';
-import SecondPage from './pages/SecondPage';
+import SecondPage from './pages/Programming/SecondPage';
 import MathPage from './pages/Math/MathPage';
 
 export default function App() {

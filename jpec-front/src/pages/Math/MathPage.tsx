@@ -11,6 +11,10 @@ const MathPage: React.FC = () => {
       <h4>Introduction</h4>
       <ul>
         <li>Definitions</li>
+        <li>Approche fondée sur la connaissance</li>
+        <li>Apprentissage automatique</li>
+        <li>Apprentissage de représentition</li>
+        <li>Apprentissage profond</li>
       </ul>
         </div>
       
@@ -67,7 +71,7 @@ const MathPage: React.FC = () => {
 
         </p>
         <p>
-          <b>L'apprentisage de représentation</b> permet de découvrir les caractéristiques composant la donnée. Le but 
+          <b><span id='representation-learning'>L'apprentisage de représentation</span></b> permet de découvrir les caractéristiques composant la donnée. Le but 
           de ce type d'algorithme est généralement de différencier les facteurs de variation (sources d'influence de la donnée)
           
         </p>
