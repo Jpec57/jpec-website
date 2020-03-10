@@ -1,1 +1,1 @@
-web: ./jpec-api/target/release/jpec-website
+web: ROCKET_PORT=$PORT ROCKET_ENV=prod ./jpec-api/target/release/jpec-website
