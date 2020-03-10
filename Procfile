@@ -1,1 +1,1 @@
-web: cd jpec-api/ && cargo build && cargo run 
+web: cd jpec-api/ && cargo run 
