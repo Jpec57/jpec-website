@@ -1,1 +1,1 @@
-web: cd jpec-api/ && cargo run 
+web: ./jpec-api/target/release/jpec-website
