@@ -1,0 +1,26 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 32%;
+    background-color: #303d42;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    .card-footer{
+        display: flex;
+        justify-content: center;
+        color: white;
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
+}
+
+.color{
+    background-color: green;
+}
+
+img{
+    max-width:100%;
+    max-height:100%;
+}

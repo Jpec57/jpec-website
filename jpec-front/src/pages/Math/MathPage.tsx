@@ -1,17 +1,39 @@
 import React from 'react';
-import { useWindowSize } from '../../hooks/useWindowSize';
-import { Link } from 'react-router-dom';
-const Latex = require('react-latex');
+import Card from '../../components/Card/Card';
+// const Latex = require('react-latex');
+
+const mathPages = [
+  {
+    name: "Apprentissage Profond",
+    path: "/deep-learning"
+  },
+  {
+    name: "Apprentissage Profond",
+    path: "/deep-learning"
+  },
+  {
+    name: "Apprentissage Profond",
+    path: "/deep-learning"
+  },
+  {
+    name: "Apprentissage Profond",
+    path: "/deep-learning"
+  }
+];
+
 
 const MathPage: React.FC = () => {
+
   return (
-    <div className="container">
+    <div className="container margin-container">
       <header className="header-content">
-        <p>
-          This is a math page
-          <Link to="/deep-learning">Deep learning</Link>
-        </p>
       </header>
+
+      {mathPages.map((page, index) => {
+            return (
+              <Card key={index} name={page.name} path={`/math${page.path}`}/>
+            );
+        })}
     </div>
   );
 }

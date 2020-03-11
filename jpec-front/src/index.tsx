@@ -12,32 +12,10 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import FirstPage from './pages/HomePage/FirstPage';
-import SecondPage from './pages/Programming/SecondPage';
+import FirstPage from './pages/HomePage/HomePage';
+import SecondPage from './pages/Programming/ProgrammingPage';
 import MathPage from './pages/Math/MathPage';
 import DeepLearningPage from './pages/Math/DeepLeaning/DeepLearning';
-
-const routes = [
-  {
-    path: "/",
-    component: FirstPage
-  },
-  {
-    path: "/japanese",
-    component: SecondPage
-  },
-  {
-    path: "/math",
-    component: MathPage,
-    routes: [
-      {
-        path: "/math/deep-leaning",
-        component: DeepLearningPage
-      }
-    ]
-  }
-];
-
 
 export default function App() {
     return (
@@ -62,40 +40,12 @@ export default function App() {
 					</div>
 				</section>
         <Switch>
-          {routes.map((route, i) => (
-            <RouteWithSubRoutes key={i} {...route} />
-          ))}
-        </Switch>
-        {/* <Switch>
-
-            <Route path="/math">
-
-              <MathPage />
-            </Route>
-            <Route path="/japanese">
-              <SecondPage />
-            </Route>
-
-            <Route path="/">
-            <FirstPage />
-            </Route>
-          </Switch> */}
-                  {routes.map((route, i) => (
-          <RouteWithSubRoutes key={i} {...route} />
-        ))}
+            <Route path="/math/deep-learning" component={DeepLearningPage}/>
+            <Route path="/math" component={MathPage}/>
+            <Route path="/japanese" component={SecondPage}/>
+            <Route path="/" component={FirstPage}/>
+          </Switch>
       </Router>
-    );
-  }
-
-  function RouteWithSubRoutes(route: any) {
-    return (
-      <Route
-        path={route.path}
-        render={props => (
-          // pass the sub-routes down to keep nesting
-          <route.component {...props} routes={route.routes} />
-        )}
-      />
     );
   }
 
