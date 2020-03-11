@@ -1,10 +1,9 @@
 .container.flex-horizontal {
-    margin-left: 1em;
-
     .table-content {
-        margin-right: 1em;
+        margin-left: 1em;
+        margin-right: 4em;
         flex: 2;
-        background-color: darkslategrey;
+        background-color: #303d42;
         border-radius: 10px;
         padding: 10px 5px;
         justify-items: center;
@@ -13,13 +12,29 @@
             display: flex;
             flex-direction: column;
             margin-left: 20px;
+            margin-right: 10px;
 
             ul {
+                list-style-type: none;
+                a {
+                    &:link{
+                        text-decoration: none !important;
+                    }
+                    color:white;
+                    cursor: pointer;
+                }
             }
         }
     }
     .main{
-        flex: 5;
+        flex: 6;
+    }
+    .flex-2{
+        flex: 2;
+    }
+
+    .flex-1{
+        flex: 1;
     }
 }
 
