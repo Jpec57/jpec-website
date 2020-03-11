@@ -137,7 +137,6 @@ input, select, textarea {
 		transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
 		color: #666;
 		text-decoration: none;
-		border-bottom: solid 1px #ddd;
 	}
 
 		a strong {
@@ -2743,3 +2742,9 @@ input, select, textarea {
 
 		
 	}
+ 
+@for $i from 1 through 20 {
+	.mr-#{$i}{
+		margin-right: #{$i}px;
+	}
+}
