@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 const FirstPage: React.FC = () => {
+  const [drawnNumber, setDrawnNumber] = useState(-1);
   return (
     <div className="container">
       <header className="header-content">
@@ -12,6 +13,10 @@ const FirstPage: React.FC = () => {
 
         <button id="clear-button" className="btn btn-dark">Clear</button>
         <button id="predict-button" className="btn btn-dark">Predict</button>
+      </div>
+      <div>
+
+        You draw a 
       </div>
     </div>
   );

@@ -12,9 +12,10 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import FirstPage from './pages/HomePage/FirstPage';
-import SecondPage from './pages/Programming/SecondPage';
+import FirstPage from './pages/HomePage/HomePage';
+import SecondPage from './pages/Programming/ProgrammingPage';
 import MathPage from './pages/Math/MathPage';
+import DeepLearningPage from './pages/Math/DeepLeaning/DeepLearning';
 
 export default function App() {
     return (
@@ -39,15 +40,10 @@ export default function App() {
 					</div>
 				</section>
         <Switch>
-            <Route path="/math">
-              <MathPage />
-            </Route>
-            <Route path="/japanese">
-              <SecondPage />
-            </Route>
-            <Route path="/">
-            <FirstPage />
-            </Route>
+            <Route path="/math/deep-learning" component={DeepLearningPage}/>
+            <Route path="/math" component={MathPage}/>
+            <Route path="/japanese" component={SecondPage}/>
+            <Route path="/" component={FirstPage}/>
           </Switch>
       </Router>
     );

@@ -1,1 +1,1 @@
-web: cd jpec-api/ && cargo run 
+web: ROCKET_PORT=$PORT ROCKET_ENV=prod ./jpec-api/target/release/jpec-website

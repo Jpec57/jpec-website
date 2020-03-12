@@ -37,20 +37,4 @@
         flex: 1;
     }
 }
-.grid{
-    display: flex;
-    justify-content: center;
 
-    .grid-container {
-        display: grid;
-        grid-template-columns: auto auto auto;
-        padding: 10px;
-      }
-      .grid-item {
-        margin-left: 10px;
-        margin-right: 10px;
-        padding: 20px;
-        font-size: 30px;
-        text-align: center;
-      }
-}
