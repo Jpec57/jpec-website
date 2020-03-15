@@ -8,16 +8,12 @@ const mathPages = [
     path: "/deep-learning"
   },
   {
-    name: "Apprentissage Profond",
-    path: "/deep-learning"
+    name: "k-NN",
+    path: "/k-nn"
   },
   {
-    name: "Apprentissage Profond",
-    path: "/deep-learning"
-  },
-  {
-    name: "Apprentissage Profond Je suis un text assez long",
-    path: "/deep-learning"
+    name: "Régression linéaire",
+    path: "/linear-regression"
   }
 ];
 
@@ -34,7 +30,7 @@ const MathPage: React.FC = () => {
 
 {mathPages.map((page, index) => {
       return (
-        <div className="grid-item"> <Card key={index} name={page.name} path={`/math${page.path}`}/></div>  
+        <div key={index} className="grid-item"> <Card key={index} name={page.name} path={`/math${page.path}`}/></div>  
 
        
       );

@@ -62,7 +62,7 @@ const DeepLearningPage: React.FC = () => {
       <h3>
           Introduction
         </h3>
-        <p className="definition-anchor">
+        <p id="definition-anchor">
 
           L'apprentissage profond, autrement appelé <i>Deep learning</i> est un ensemble de méthodes d'apprentissage automatique tentant de tirer
           des informations à partir de données brutes pour les modéliser. 
