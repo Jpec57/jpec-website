@@ -2,6 +2,43 @@ import React from 'react';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 import { Link } from 'react-router-dom';
 import regression_lin_data from '../../../css/images/regression_lin_data.jpg';
+import { constraintLatex, constraintLatex2 } from './RegressionPageLatex';
+const Latex = require('react-latex');
+
+// const latexMath = `
+// $$x^{T}=(x_{1}, ..., x_{n})$$
+// \\begin{gather*}
+//  \\hat{y} =x^{T}\\theta \\\\
+//  x^{T}=(x_{1}, ..., x_{n})
+// \\end{gather*}
+
+// \\begin{equation}
+// \\hat{y} =x^{T}\\theta
+// \\end{equation}
+// `;
+
+const code = `import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# On charge le dataset
+house_data = pd.read_csv('house.csv')
+house_data = house_data[house_data['loyer'] &lt; 10000]
+# On affiche le nuage de points dont on dispose
+plt.plot(house_data['surface'], house_data['loyer'], 'ro', markersize=4)
+
+# On décompose le dataset et on le transforme en matrices pour pouvoir effectuer notre calcul avec les fameux 1 en premier
+X = np.matrix([np.ones(house_data.shape[0]), house_data['surface'].values]).T
+y = np.matrix(house_data['loyer']).T
+
+# On effectue le calcul exact du paramètre theta
+theta = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y)
+
+print(theta)
+# On affiche la droite entre 0 et 250 en donnant les points en 0 et 250 en deuxième argument
+plt.plot([0,250], [theta.item(0),theta.item(0) + 250 * theta.item(1)], linestyle='--', c='#000000')
+plt.show()
+`;
 
 const RegressionPage: React.FC = () => {
   const size = useWindowSize();
@@ -92,43 +129,32 @@ Parce que c'est moi qui décide :). Plus sérieusement, le choix de la droite po
 <h3>
     Incidence de la contrainte
 </h3>
+<p>
+<Latex displayMode={true}>
+  {constraintLatex}
+</Latex>
+
+<Latex>
+  {constraintLatex2}
+</Latex>
+</p>
 
 <h3>
     Cas pratique
 </h3>
 <p>
-    Nous allons ainsi nous intéresser à un cas simple ne comprenant qu'une seule variable à relier à une autre. 
+    Nous allons ainsi nous intéresser à un cas simple ne comprenant qu'une seule variable à relier à une autre. L'objectif ici est de
+    modéliser l'influence de la surface d'un appartement sur le prix du loyer que l'on suppose linéaire. Il convient ainsi d'utiliser
+    la contrainte trouvée précédemment pour calculer theta = (theta0, theta1) = (ordonnée à l'origine, coefficient directeur de la droite).
+    Enfin, il suffit de remplacer les valeurs obtenues pour tracer notre droite. 
 </p>
 
 <pre>
-<code>
-import numpy as np
-</code>
-<code>
-import pandas as pd
-</code>
-<code>
-import matplotlib.pyplot as plt
-
-# On charge le dataset
-house_data = pd.read_csv('house.csv')
-house_data = house_data[house_data['loyer'] &lt; 10000]
-# On affiche le nuage de points dont on dispose
-plt.plot(house_data['surface'], house_data['loyer'], 'ro', markersize=4)
-
-# On décompose le dataset et on le transforme en matrices pour pouvoir effectuer notre calcul avec les fameux 1 en premier
-X = np.matrix([np.ones(house_data.shape[0]), house_data['surface'].values]).T
-y = np.matrix(house_data['loyer']).T
-
-# On effectue le calcul exact du paramètre theta
-theta = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y)
-
-print(theta)
-# On affiche la droite entre 0 et 250 en donnant les points en 0 et 250 en deuxième argument
-plt.plot([0,250], [theta.item(0),theta.item(0) + 250 * theta.item(1)], linestyle='--', c='#000000')
-plt.show()
-</code>
+  <code>
+    {code}
+  </code>
 </pre>
+<br></br>
 
 
         <h3>

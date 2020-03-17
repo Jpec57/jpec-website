@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from '../../components/Card/Card';
-// const Latex = require('react-latex');
 
 const mathPages = [
   {
@@ -31,8 +30,6 @@ const MathPage: React.FC = () => {
 {mathPages.map((page, index) => {
       return (
         <div key={index} className="grid-item"> <Card key={index} name={page.name} path={`/math${page.path}`}/></div>  
-
-       
       );
   })}
   </div>

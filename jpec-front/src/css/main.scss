@@ -2756,5 +2756,9 @@ input, select, textarea {
 
 code {
 	display: block;
-	white-space: pre-wrap   
+	white-space: pre-wrap;
+	background-color: black;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 3px;
   }
