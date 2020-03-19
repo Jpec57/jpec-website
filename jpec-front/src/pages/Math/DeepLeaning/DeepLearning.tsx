@@ -30,6 +30,12 @@ const DeepLearningPage: React.FC = () => {
         <li><a href="#representation-learning-anchor">Apprentissage de représentation</a></li>
         <li><a href="#deep-learning-anchor">Apprentissage profond</a></li>
       </ul>
+
+      <h4>Rappels mathématiques</h4>
+      <ul>
+        <li><a href="#norm-anchor">Normes</a></li>
+        <li><a href="#matrix-decomposition-anchor">Décompositions matricielles intéressantes</a></li>
+      </ul>
         </div>
   </div>
       );
@@ -46,6 +52,7 @@ const DeepLearningPage: React.FC = () => {
     );
   }
 
+
   return (
 
     <div className="container flex-horizontal">
@@ -59,10 +66,11 @@ const DeepLearningPage: React.FC = () => {
           Apprentissage profond
         </h1>
       </header>
+
       <h3>
           Introduction
         </h3>
-        <p className="definition-anchor">
+        <p id="definition-anchor">
 
           L'apprentissage profond, autrement appelé <i>Deep learning</i> est un ensemble de méthodes d'apprentissage automatique tentant de tirer
           des informations à partir de données brutes pour les modéliser. 
@@ -122,8 +130,63 @@ const DeepLearningPage: React.FC = () => {
           représentant des concepts abstraits.
         </p>
 
-        <Latex>What is $(3\times 4) \div (5-3)$</Latex>
-  </div>
+        <h3>
+          Rappels mathématiques (...ou pas)
+        </h3>
+
+        <h4 id="norm-anchor">
+          Normes
+        </h4>
+
+<ul>
+  <li>
+  La norme utilisée par convention est la norme euclidienne 
+        <Latex>{` $L^{2} = (\\sum \\limits_{\\underset{}{i=0}}^n |x_{i}|^{2})^{1/2}$.`}</Latex>
+  </li>
+  <li>
+  Une autre norme couramment utilisée est la norme uniforme <Latex>{`$L^{\\infty} = max |x_{i}|$.`}</Latex>
+  </li>
+  <li>
+  La norme <Latex>{`$L^{1} = \\sum \\limits_{\\underset{}{i=0}}^n |x_{i}|$`}</Latex> est quant à elle principalement utilisée lorsque la différence entre les éléments égaux à zéro et 
+les éléments différents de zéro est importante.
+  </li>
+  <li>
+  Il existe aussi la norme de Frobenius qui permet de mesure la taille d'une matrice notée <Latex>{`$L^{F}=\\sqrt{\\sum \\limits_{\\underset{}{i,j}} A_{i,j}^{2}} = \\sqrt{Tr(AA^{T})}$`}</Latex>
+
+  </li>
+</ul>
+
+        <h4 id="matrix-decomposition-anchor">
+          Décompositions de matrices intéressantes
+        </h4>
+
+        <p>Quelques décompositions matricielles sont intéressantes afin d'accélérer le calcul informatique. Cela peut être dû au fait d'avoir une formule toute faite
+          pour les multiplications ou simplement une réduction du nombre d'opérations à réaliser. Ainsi, on notera:
+          <ul>
+            <li>
+              la décomposition en valeurs propres:         
+              <Latex>{` $A = V * diag(\\lambda) * V^{-1} $avec V une concaténation de n vecteurs propres et $\\lambda$ une concaténation de n valeurs propres.`}</Latex>
+            </li>
+            <li>
+              la décomposition en valeurs singulières: 
+              <Latex>{` $A = U * D * V^{T} $`}</Latex>  où U et V sont orthogonales. 
+            </li>
+          </ul>
+          Cette dernière notation est intéressante car elle permet de généraliser partiellement l'inversion matricielle des matrices non carrées.
+          De cette façon, quand on cherche à résoudre l'équation Ax = y, il suffit de prendre B l'inverse à gauche de A donnant x = By.
+          Deux cas se présente alors:
+          <ul>
+            <li>
+              Si A est plus haut que large: il est possible qu'il n'y ait pas de solution. En prenant <Latex>{"$x = A^{+} y$"}</Latex>, on obtient le x pour lequel Ax
+              est aussi proche que possible de y en norme euclidienne où <Latex>{`$A^{+}= \\lim_{\\alpha \\to 0}(A^{T}A + \\alpha I)^{-1}A^{T} = V * D^{+} * U^{T}$`}</Latex>
+            </li>
+            <li>
+            Si A est plus large que haut: il est possible d'avoir plusieurs solutions, mais on obtient au moins la solution donnée par x qui a une norme euclidienne 
+            minimale parmis toutes les solutions possibles.
+            </li>
+          </ul>
+        </p>
+        </div>
       {renderRightMargin(size.width)}
       </div>
   );
