@@ -164,7 +164,7 @@ Parce que c'est moi qui décide :). Plus sérieusement, le choix de la droite po
             <ul>
                 <li>
                 <a href="https://openclassrooms.com/fr/courses/4011851-initiez-vous-au-machine-learning/4121986-programmez-votre-premiere-regression-lineaire">
-                Open ClassRoom
+                OpenClassRoom
             </a>
                 </li>
             </ul>
