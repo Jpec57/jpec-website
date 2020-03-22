@@ -13,11 +13,11 @@ import {
   Link
 } from "react-router-dom";
 import FirstPage from './pages/HomePage/HomePage';
-import SecondPage from './pages/Programming/ProgrammingPage';
 import MathPage from './pages/Math/MathPage';
 import DeepLearningPage from './pages/Math/DeepLeaning/DeepLearning';
 import KNNPage from './pages/Math/kNN/KNN';
 import RegressionPage from './pages/Math/Regression/RegressionPage';
+import JapanesePage from './pages/Japanese/JapanesePage';
 
 export default function App() {
     return (
@@ -46,7 +46,7 @@ export default function App() {
           <Route path="/math/k-nn" component={KNNPage}/>
             <Route path="/math/deep-learning" component={DeepLearningPage}/>
             <Route path="/math" component={MathPage}/>
-            <Route path="/japanese" component={SecondPage}/>
+            <Route path="/japanese" component={JapanesePage}/>
             <Route path="/" component={FirstPage}/>
           </Switch>
       </Router>

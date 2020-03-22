@@ -23,7 +23,7 @@ const FirstPage: React.FC = () => {
         <div id="chart_box" className="chart-box"></div>
 
         <button id="clear-button" className="btn btn-dark">Clear</button>
-        <button id="predict-button" className="btn btn-dark">Predict</button>
+        <button id="predict-button" className="btn btn-dark" onClick={()=>{setDrawnNumber(4)}}>Predict</button>
       </div>
       {renderResult()}
     </div>

@@ -43,7 +43,7 @@
 
     .grid-container {
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: repeat(3, 1fr);
         padding: 10px;
       }
       .grid-item {
@@ -52,5 +52,8 @@
         padding: 20px;
         font-size: 30px;
         text-align: center;
+      }
+      img {
+          max-height: 180px;
       }
 }

@@ -4,15 +4,18 @@ import Card from '../../components/Card/Card';
 const mathPages = [
   {
     name: "Apprentissage Profond",
-    path: "/deep-learning"
+    path: "/deep-learning",
+    img: "https://singularityhub.com/wp-content/uploads/2018/11/multicolored-brain-connections_shutterstock_347864354-1068x601.jpg"
   },
   {
     name: "k-NN",
-    path: "/k-nn"
+    path: "/k-nn",
+    img: "https://www.kdnuggets.com/wp-content/uploads/knn1.png"
   },
   {
     name: "Régression linéaire",
-    path: "/linear-regression"
+    path: "/linear-regression",
+    img: "https://user.oc-static.com/upload/2019/04/23/15560371787169_3c1-b.jpg"
   }
 ];
 
@@ -29,7 +32,7 @@ const MathPage: React.FC = () => {
 
 {mathPages.map((page, index) => {
       return (
-        <div key={index} className="grid-item"> <Card key={index} name={page.name} path={`/math${page.path}`}/></div>  
+        <div key={index} className="grid-item"> <Card key={index} name={page.name} path={`/math${page.path}`} img={page.img}/></div>  
       );
   })}
   </div>

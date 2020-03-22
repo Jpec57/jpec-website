@@ -204,6 +204,7 @@ input, select, textarea {
 
 	.container {
 		margin: 0 auto;
+		margin-bottom: 50px;
 		max-width: 100%;
 		width: 70em;
 	}
@@ -2762,3 +2763,58 @@ code {
 	padding: 10px 20px;
 	border-radius: 3px;
   }
+
+button:hover{
+	cursor: pointer;	  
+}
+
+h5{
+	text-decoration: underline;
+	font-size: 14px;
+	margin-top: 15px;
+}
+
+.centered-div{
+	display: flex;
+	justify-content: center;
+}
+
+.container.flex-horizontal {
+    .table-content {
+        margin-left: 1em;
+        margin-right: 4em;
+        flex: 2;
+        background-color: #303d42;
+        border-radius: 10px;
+        padding: 10px 5px;
+        justify-items: center;
+
+        .table-content-enum{
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+            margin-right: 10px;
+
+            ul {
+                list-style-type: none;
+                a {
+                    &:link{
+                        text-decoration: none !important;
+                    }
+                    color:white;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .main{
+        flex: 6;
+    }
+    .flex-2{
+        flex: 2;
+    }
+
+    .flex-1{
+        flex: 1;
+    }
+}
