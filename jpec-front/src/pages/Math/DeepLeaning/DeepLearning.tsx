@@ -1,6 +1,8 @@
 import React from 'react';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 import { Link } from 'react-router-dom';
+import acp_principle_img from '../../../css/images/acp_principle.jpg';
+
 const Latex = require('react-latex');
 
 const DeepLearningPage: React.FC = () => {
@@ -222,6 +224,10 @@ les éléments différents de zéro est importante.
           <Latex>{`$\\Leftarrow$`}</Latex> Trouver g tel que <Latex>{`$x \\approx g(f(x)) = g(c)$`}</Latex> qui permet <b>à partir de l'encodement de x de trouver c</b>.
           </li>
           </ol>
+
+<div className="centered-div">
+<img src={acp_principle_img} alt='ACP principle' height={300}/>
+</div>
         </div>
 
         <h5 id="acp-constraints-anchor">Contraintes</h5>
