@@ -1,0 +1,21 @@
+.audio-player{
+ .audio-controller-box{
+     padding: 10px;
+    height: 100px;
+    background-color: whitesmoke;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    .icon {
+        font-size: 30px;
+    }
+ }  
+ .answer-box{
+    height: 100px;
+    background-color: rgb(131, 128, 128);
+ } 
+ .correction-box{
+    height: 100px;
+    background-color: rgb(105, 102, 102);
+ }
+}
