@@ -66,7 +66,14 @@ const JapanesePage: React.FC = () => {
   const dialogueLines: Array<String> = [];
   const [isPlaying, setIsPlaying] = useState(false);
 
-  fetch('https://jpec-website.herokuapp.com/test').then((response)=>{
+  fetch('https://jpec-website.herokuapp.com').then((response)=>{
+    return response.json();
+  }).then((data)=>{
+    console.log(data);
+  });
+
+
+  fetch('http://127.0.0.1:8000/test').then((response)=>{
     return response.json();
   }).then((data)=>{
     console.log(data);
@@ -142,8 +149,8 @@ const JapanesePage: React.FC = () => {
 
 
 <div style={{marginTop: 40}}>
-{dialogueLines.map((line)=>{
-  return (<p>{line.trim()}</p>);
+{dialogueLines.map((line, index)=>{
+  return (<p key={index}>{line.trim()}</p>);
 })}
 </div>
 
