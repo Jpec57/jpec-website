@@ -66,7 +66,7 @@ const JapanesePage: React.FC = () => {
   const dialogueLines: Array<String> = [];
   const [isPlaying, setIsPlaying] = useState(false);
 
-  fetch('https://jpec-website.herokuapp.com').then((response)=>{
+  fetch('https://jpec-website.herokuapp.com/test').then((response)=>{
     return response.json();
   }).then((data)=>{
     console.log(data);
