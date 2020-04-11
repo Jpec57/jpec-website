@@ -1,6 +1,6 @@
-import React, {useRef, MutableRefObject, useState, useEffect} from 'react';
-import './JapanesePage.scss';
-import '../../japanese-translations/test_jap.srt';
+import React, { useRef, MutableRefObject, useState, useEffect } from "react";
+import "./JapanesePage.scss";
+import "../../japanese-translations/test_jap.srt";
 const text = `
 1
 00:00:02,168 --> 00:00:04,170
@@ -54,117 +54,120 @@ const text = `
 00:01:50,902 --> 00:01:57,909
 `;
 type SpeechConfig = {
-  pitch: number, //between 0 and 2
-  rate: number, // between 0 and 1
-  text: string,
-  voice: SpeechSynthesisVoice | null,
-  volume: number, // between 0 and 1
-}
+  pitch: number; //between 0 and 2
+  rate: number; // between 0 and 1
+  text: string;
+  voice: SpeechSynthesisVoice | null;
+  volume: number; // between 0 and 1
+};
 
 //https://www3.nhk.or.jp/news/easy/
 const JapanesePage: React.FC = () => {
-  const dialogueLines: Array<String> = [];
+  const [dialog, setDialog] = useState("");
+  const [dialogLines, setDialogLines] = useState([""]);
   const [isPlaying, setIsPlaying] = useState(false);
+  var speechSynthesisVar: MutableRefObject<SpeechSynthesisUtterance | null> = useRef(
+    null
+  );
 
-  fetch('https://jpec-website.herokuapp.com/test').then((response)=>{
-    return response.json();
-  }).then((data)=>{
-    console.log(data);
-  });
+  // fetch("https://jpec-website.herokuapp.com/test")
+  //   .then(response => {
+  //     return response.json();
+  //   })
+  //   .then(data => {
+  //     console.log(data);
+  //   });
+  useEffect(() => {
+    const splitSrtFile = () => {
+      const tmpDialogLines: Array<string> = [];
+      const frames = text.trim().split("\n\n");
+      frames.forEach(frame => {
+        const lines = frame.split("\n");
+        const realDialog = lines.slice(2).join("\n");
+        console.log(realDialog);
+        tmpDialogLines.push(realDialog);
+      });
+      setDialog(tmpDialogLines.join("\n"));
+      setDialogLines(tmpDialogLines);
+    };
+    splitSrtFile();
+  }, []);
 
+  useEffect(() => {
+    speechSynthesisVar.current = configureSpeechSynthesis({});
+  }, []);
 
-  fetch('http://127.0.0.1:8000/test').then((response)=>{
-    return response.json();
-  }).then((data)=>{
-    console.log(data);
-  });
-
-  const splitSrtFile = () =>{
-    const frames = text.trim().split("\n\n");
-    frames.forEach((frame)=>{
-      const lines = frame.split("\n");
-      dialogueLines.push(lines.slice(2).join("\n"));
-    });
-    // console.log(dialogueLines.join("\n\n"));
+  const configureSpeechSynthesis = ({
+    rate = 1
+  }: {
+    rate?: number;
+  }): SpeechSynthesisUtterance => {
+    const msg = new SpeechSynthesisUtterance();
+    const availableVoices: SpeechSynthesisVoice[] = window.speechSynthesis
+      .getVoices()
+      .filter(voice => voice.lang === "ja-JP");
+    msg.voice = availableVoices[0];
+    msg.rate = rate;
+    msg.onend = event => {
+      setIsPlaying(false);
+    };
+    msg.onstart = event => {
+      setIsPlaying(true);
+    };
+    return msg;
   };
 
-  splitSrtFile();
-
-  if ('speechSynthesis' in window) {
-    console.log('Ok');
-  } else {
-    console.log('Not supported.');
-  }
-    var speechSynthesisVar: MutableRefObject<SpeechSynthesisUtterance | null> = useRef(null);
-
-
-    const configureSpeechSynthesis = (rate: number = 1): SpeechSynthesisUtterance => {
-        const msg = new SpeechSynthesisUtterance();
-        msg.voice = window.speechSynthesis.getVoices()
-            .filter((voice) => 
-                voice.name === 'Kyoko'
-                )[0];
-        msg.rate = rate;
-        msg.pitch = 0.3;
-        return msg;
-    };
-
-    //TODO should only look once at page load but doesn't work
-    useEffect(()=>{
-        speechSynthesisVar.current = configureSpeechSynthesis();
-    }, []);
-
-    const say = (message: string, rate: number = 1) => {
-        speechSynthesisVar.current = configureSpeechSynthesis(rate);
-        speechSynthesisVar.current.text = message;
-        window.speechSynthesis.speak(speechSynthesisVar.current);
-        // window.s
-    };
+  const say = (message: string, { rate = 1 }: { rate: number }) => {
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel();
+      return;
+    }
+    speechSynthesisVar.current = configureSpeechSynthesis({ rate });
+    speechSynthesisVar.current.text = message;
+    window.speechSynthesis.speak(speechSynthesisVar.current);
+  };
 
   return (
     <div className="container">
-      <header className="header-content">
-      </header>
-      <div>
-        <span>This is a test</span>
+      <header className="header-content"></header>
+      <div className="page">
         <div className="audio-player">
-        <div className="audio-controller-box">
-<div className="audio-rate">
-
-</div>
-<div className="centered-div">
-<i className="icon solid fa-play-circle" onClick={()=>{
-            say('234')
-            }}/>
-  </div>
+          <div className="audio-controller-box">
+            <div className="audio-controller centered-div">
+              <i
+                className={
+                  `icon solid ` +
+                  (isPlaying ? "fa-stop-circle" : "fa-play-circle")
+                }
+                onClick={() => {
+                  say(dialog, { rate: 1 });
+                }}
+              />
+            </div>
+          </div>
+          <div className="answer-box">
+            <div className="text-box">
+              {dialogLines.map((line, index) => {
+                return (
+                  <span key={index}>
+                    {line.trim()}
+                    <br></br>
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+          <button
+            onClick={() => {
+              console.log("oups");
+            }}
+          >
+            Verify my answers
+          </button>
         </div>
-        <div className="answer-box">
-
-<input />
-        </div>
-        <div className="correction-box">
-
-        </div>
-        </div>
-
-
-<div style={{marginTop: 40}}>
-{dialogueLines.map((line, index)=>{
-  return (<p key={index}>{line.trim()}</p>);
-})}
-</div>
-
-        <button onClick={()=>{
-            say(dialogueLines.join("\n"), 0.9)
-            }}>
-            Click here
-        </button>
-
-
-
       </div>
     </div>
   );
-}
+};
 
 export default JapanesePage;
