@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AnswerRepository")
@@ -34,6 +35,7 @@ class Answer
   /**
    * @ORM\ManyToOne(targetEntity="App\Entity\Card", inversedBy="answers")
    * @ORM\JoinColumn(nullable=false)
+   * @Assert\NotBlank
    */
   private $card;
 

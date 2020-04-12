@@ -7,19 +7,28 @@ use Symfony\Component\Form\FormError;
 
 trait FormTrait
 {
-  private function getErrorsArray(Form $form): array {
-    $errorArray = [];
-    foreach ($form->all() as $field){
-      /** @var FormError[] $errors */
-      $errors = $field->getErrors(true);
-      if (count($errors) > 0){
-        $fieldError = [];
-        foreach ($errors as $error){
-          $fieldError[] = $error->getMessage();
+  private function getErrorsArray(Form $form): array
+  {
+    $errors = array();
+
+    if ($form->count() > 0) {
+      foreach ($form->all() as $child) {
+        /**
+         * @var Form $child
+         */
+        if (!$child->isValid()) {
+          $errors[$child->getName()] = $this->getErrorsArray($child);
         }
-        $errorArray[$field->getName()] = $fieldError;
+      }
+    } else {
+      /**
+       * @var FormError $error
+       */
+      foreach ($form->getErrors() as $key => $error) {
+        $errors[] = $error->getMessage();
       }
     }
-    return $errorArray;
+
+    return $errors;
   }
 }

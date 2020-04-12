@@ -25,26 +25,26 @@ class Deck
   /**
    * @Assert\NotBlank
    * @ORM\Column(type="string", length=255)
-   * @Groups({"deck"})
+   * @Groups({"deck", "card"})
    */
   private $title;
 
   /**
    * @Assert\NotBlank
    * @ORM\Column(type="string", length=255)
-   * @Groups({"deck"})
+   * @Groups({"deck", "card"})
    */
   private $author;
 
   /**
-   * @Groups({"deck"})
+   * @Groups({"deck", "card"})
    * @ORM\Column(type="string", length=255, nullable=true)
    */
   private $description;
 
   /**
    * @Groups({"deck"})
-   * @ORM\OneToMany(targetEntity="App\Entity\Card", mappedBy="deck", orphanRemoval=true)
+   * @ORM\OneToMany(targetEntity="App\Entity\Card", mappedBy="deck", orphanRemoval=true, cascade={"persist"})
    */
   private $cards;
 

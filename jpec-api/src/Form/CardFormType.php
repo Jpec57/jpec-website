@@ -3,8 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Card;
-use Doctrine\DBAL\Types\BooleanType;
+use App\Entity\Deck;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -30,14 +33,31 @@ class CardFormType extends AbstractType
           ],
         ]
       )
-      //TODO entity
-      ->add('deck', TextType::class, [])
-      ->add('languageCode', IntegerType::class)
-      ->add('answerLanguageCode', IntegerType::class)
-      ->add('isReversible', BooleanType::class)
-      ->add('hint', TextType::class)
-      //TODO
-      ->add('answers', TextType::class);
+      ->add('deck', EntityType::class, [
+        'class' => Deck::class
+      ])
+      ->add('languageCode', IntegerType::class, [
+        'required' => false,
+        'empty_data' => '' . Card::LANGUAGE_JAPANESE_CODE
+      ])
+      ->add('answerLanguageCode', IntegerType::class, [
+        'required' => false,
+        'empty_data' => '' . Card::LANGUAGE_ENGLISH_CODE
+      ])
+      ->add('isReversible', ChoiceType::class, [
+        'choices' => ['Yes' => true, 'No' => false],
+        'empty_data' => true
+      ])
+      ->add('hint', TextType::class, [
+        'required' => false
+      ])
+      ->add('answers', CollectionType::class, [
+        'entry_type' => AnswerFormType::class,
+        'by_reference' => false,
+        'allow_add' => true,
+        'allow_delete' => true,
+        'required' => false
+      ]);
   }
 
   public function configureOptions(OptionsResolver $resolver)

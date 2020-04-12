@@ -39,6 +39,7 @@ class Card
   /**
    * @ORM\ManyToOne(targetEntity="App\Entity\Deck", inversedBy="cards")
    * @ORM\JoinColumn(nullable=false)
+   * @Groups({"card"})
    */
   private $deck;
 
@@ -46,13 +47,13 @@ class Card
    * @ORM\Column(type="integer")
    * @Groups({"deck", "card"})
    */
-  private $languageCode = Card::LANGUAGE_JAPANESE_CODE;
+  private $languageCode = self::LANGUAGE_JAPANESE_CODE;
 
   /**
    * @Groups({"deck", "card"})
    * @ORM\Column(type="integer")
    */
-  private $answerLanguageCode = Card::LANGUAGE_ENGLISH_CODE;
+  private $answerLanguageCode = self::LANGUAGE_ENGLISH_CODE;
 
   /**
    * @Groups({"deck", "card"})
@@ -68,7 +69,7 @@ class Card
 
   /**
    * @Groups({"deck", "card"})
-   * @ORM\OneToMany(targetEntity="App\Entity\Answer", mappedBy="card", orphanRemoval=true)
+   * @ORM\OneToMany(targetEntity="App\Entity\Answer", mappedBy="card", orphanRemoval=true, cascade={"persist"})
    */
   private $answers;
 
@@ -76,7 +77,10 @@ class Card
 
   public function __construct()
   {
+    $this->nextAvailable = time();
     $this->answers = new ArrayCollection();
+    $this->languageCode = self::LANGUAGE_JAPANESE_CODE;
+    $this->answerLanguageCode = self::LANGUAGE_ENGLISH_CODE;
   }
 
   public function setId($id): self
@@ -95,7 +99,7 @@ class Card
     return $this->nextAvailable;
   }
 
-  public function setNextAvailable(int $nextAvailable): self
+  public function setNextAvailable(?int $nextAvailable): self
   {
     $this->nextAvailable = $nextAvailable;
 
@@ -131,7 +135,7 @@ class Card
     return $this->languageCode;
   }
 
-  public function setLanguageCode(int $languageCode): self
+  public function setLanguageCode(?int $languageCode): self
   {
     $this->languageCode = $languageCode;
 
@@ -143,7 +147,7 @@ class Card
     return $this->isReversible;
   }
 
-  public function setIsReversible(bool $isReversible): self
+  public function setIsReversible(?bool $isReversible): self
   {
     $this->isReversible = $isReversible;
 
@@ -198,7 +202,7 @@ class Card
       return $this->answerLanguageCode;
   }
 
-  public function setAnswerLanguageCode(int $answerLanguageCode): self
+  public function setAnswerLanguageCode(?int $answerLanguageCode): self
   {
       $this->answerLanguageCode = $answerLanguageCode;
 

@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Answer;
+use App\Entity\Card;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -29,7 +31,16 @@ class AnswerFormType extends AbstractType
           ],
         ]
       )
-      ->add('type', IntegerType::class);
+      ->add('card', EntityType::class, [
+        'class' => Card::class,
+//        'constraints' => [
+//          new Assert\NotNull(),
+//        ],
+      ])
+      ->add('type', IntegerType::class, [
+        'required' => false,
+        'empty_data' => '' . Answer::TYPE_TEXT
+      ]);
   }
 
   public function configureOptions(OptionsResolver $resolver)

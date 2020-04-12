@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Deck;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -36,6 +37,13 @@ class DeckFormType extends AbstractType
           new Assert\NotBlank(),
           new Assert\Length(['min' => 2]),
         ],
+      ])
+      ->add('cards', CollectionType::class, [
+        'entry_type' => CardFormType::class,
+        'by_reference' => false,
+        'allow_add' => true,
+        'allow_delete' => true,
+        'required' => false
       ])
       ->add('description', TextType::class);
   }
