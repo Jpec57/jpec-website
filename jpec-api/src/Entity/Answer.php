@@ -39,6 +39,11 @@ class Answer
    */
   private $card;
 
+  /**
+   * @ORM\ManyToOne(targetEntity="App\Entity\UserCardInfo", inversedBy="userAnswers")
+   */
+  private $userCardInfo;
+
   public function getId(): ?int
   {
     return $this->id;
@@ -84,5 +89,17 @@ class Answer
     $this->card = $card;
 
     return $this;
+  }
+
+  public function getUserCardInfo(): ?UserCardInfo
+  {
+      return $this->userCardInfo;
+  }
+
+  public function setUserCardInfo(?UserCardInfo $userCardInfo): self
+  {
+      $this->userCardInfo = $userCardInfo;
+
+      return $this;
   }
 }

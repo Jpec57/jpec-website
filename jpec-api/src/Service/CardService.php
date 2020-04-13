@@ -51,7 +51,7 @@ class CardService
     }
     $card = new Card();
     $card->setDeck($deck);
-    $card->setNextAvailable(time());
+//    $card->setNextAvailable(time());
     $card->setQuestion($cardDTO->getQuestion());
     $card->setIsReversible($cardDTO->isReversible());
     $card->setLanguageCode($cardDTO->getLanguageCode());

@@ -25,12 +25,6 @@ class Card
   private $id;
 
   /**
-   * @ORM\Column(type="integer")
-   * @Groups({"deck", "card"})
-   */
-  private $nextAvailable;
-
-  /**
    * @ORM\Column(type="string", length=255)
    * @Groups({"deck", "card"})
    */
@@ -73,14 +67,17 @@ class Card
    */
   private $answers;
 
+  /**
+   * @ORM\OneToMany(targetEntity="App\Entity\UserCardInfo", mappedBy="card", orphanRemoval=true)
+   */
+  private $userCardInfos;
+
 
 
   public function __construct()
   {
-    $this->nextAvailable = time();
     $this->answers = new ArrayCollection();
-    $this->languageCode = self::LANGUAGE_JAPANESE_CODE;
-    $this->answerLanguageCode = self::LANGUAGE_ENGLISH_CODE;
+    $this->userCardInfos = new ArrayCollection();
   }
 
   public function setId($id): self
@@ -92,18 +89,6 @@ class Card
   public function getId(): ?int
   {
     return $this->id;
-  }
-
-  public function getNextAvailable(): ?int
-  {
-    return $this->nextAvailable;
-  }
-
-  public function setNextAvailable(?int $nextAvailable): self
-  {
-    $this->nextAvailable = $nextAvailable;
-
-    return $this;
   }
 
   public function getQuestion(): ?string
@@ -205,6 +190,37 @@ class Card
   public function setAnswerLanguageCode(?int $answerLanguageCode): self
   {
       $this->answerLanguageCode = $answerLanguageCode;
+
+      return $this;
+  }
+
+  /**
+   * @return Collection|UserCardInfo[]
+   */
+  public function getUserCardInfos(): Collection
+  {
+      return $this->userCardInfos;
+  }
+
+  public function addUserCardInfo(UserCardInfo $userCardInfo): self
+  {
+      if (!$this->userCardInfos->contains($userCardInfo)) {
+          $this->userCardInfos[] = $userCardInfo;
+          $userCardInfo->setCard($this);
+      }
+
+      return $this;
+  }
+
+  public function removeUserCardInfo(UserCardInfo $userCardInfo): self
+  {
+      if ($this->userCardInfos->contains($userCardInfo)) {
+          $this->userCardInfos->removeElement($userCardInfo);
+          // set the owning side to null (unless already changed)
+          if ($userCardInfo->getCard() === $this) {
+              $userCardInfo->setCard(null);
+          }
+      }
 
       return $this;
   }

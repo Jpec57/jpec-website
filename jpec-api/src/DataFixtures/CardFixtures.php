@@ -22,7 +22,7 @@ class CardFixtures extends Fixture implements DependentFixtureInterface
      */
     $card = new Card();
     $card->setDeck($this->getReference('DECK_1'));
-    $card->setNextAvailable(100);
+//    $card->setNextAvailable(100);
     $card->setQuestion('How are you ?');
     $card->setIsReversible(true);
     $card->setLanguageCode(Card::LANGUAGE_ENGLISH_CODE);
@@ -37,7 +37,7 @@ class CardFixtures extends Fixture implements DependentFixtureInterface
     // 大丈夫
     $card = new Card();
     $card->setDeck($this->getReference('DECK_1'));
-    $card->setNextAvailable(100);
+//    $card->setNextAvailable(100);
     $card->setQuestion('大丈夫?');
     $card->setHint('だいじょうぶ');
     $card->setIsReversible(true);

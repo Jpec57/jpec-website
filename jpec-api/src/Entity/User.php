@@ -40,9 +40,15 @@ class User implements UserInterface
      */
     private $apiTokens;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\UserCardInfo", mappedBy="user", orphanRemoval=true)
+     */
+    private $userCardInfos;
+
     public function __construct()
     {
         $this->apiTokens = new ArrayCollection();
+        $this->userCardInfos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -148,6 +154,37 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($apiToken->getUser() === $this) {
                 $apiToken->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|UserCardInfo[]
+     */
+    public function getUserCardInfos(): Collection
+    {
+        return $this->userCardInfos;
+    }
+
+    public function addUserCardInfo(UserCardInfo $userCardInfo): self
+    {
+        if (!$this->userCardInfos->contains($userCardInfo)) {
+            $this->userCardInfos[] = $userCardInfo;
+            $userCardInfo->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserCardInfo(UserCardInfo $userCardInfo): self
+    {
+        if ($this->userCardInfos->contains($userCardInfo)) {
+            $this->userCardInfos->removeElement($userCardInfo);
+            // set the owning side to null (unless already changed)
+            if ($userCardInfo->getUser() === $this) {
+                $userCardInfo->setUser(null);
             }
         }
 
