@@ -7,6 +7,7 @@ use App\Form\CardFormType;
 use App\Repository\CardRepository;
 use App\Traits\FormTrait;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,6 +27,7 @@ class CardController extends AbstractController
   }
 
   /**
+   * @IsGranted("ROLE_USER")
    * @Route("/cards", name="add_card", methods={"POST"})
    * @param Request $request
    * @return JsonResponse
@@ -83,6 +85,7 @@ class CardController extends AbstractController
   }
 
   /**
+   * @IsGranted("ROLE_USER")
    * @Route("/cards/{id}", name="delete_card", methods={"DELETE"})
    * @param int $id
    * @return JsonResponse

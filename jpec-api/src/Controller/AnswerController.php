@@ -7,6 +7,7 @@ use App\Form\AnswerFormType;
 use App\Repository\AnswerRepository;
 use App\Traits\FormTrait;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,6 +27,7 @@ class AnswerController extends AbstractController
   }
 
   /**
+   * @IsGranted("ROLE_USER")
    * @Route("/answers", name="add_answer", methods={"POST"})
    * @param Request $request
    * @return JsonResponse
@@ -83,6 +85,7 @@ class AnswerController extends AbstractController
   }
 
   /**
+   * @IsGranted("ROLE_USER")
    * @Route("/answers/{id}", name="delete_answer", methods={"DELETE"})
    * @param int $id
    * @return JsonResponse

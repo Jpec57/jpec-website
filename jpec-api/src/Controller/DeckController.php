@@ -7,6 +7,7 @@ use App\Form\DeckFormType;
 use App\Repository\DeckRepository;
 use App\Traits\FormTrait;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,6 +28,7 @@ class DeckController extends AbstractController
   }
 
   /**
+   * @IsGranted("ROLE_USER")
    * @Route("/decks", name="add_deck", methods={"POST"})
    * @param Request $request
    * @return JsonResponse
@@ -84,6 +86,7 @@ class DeckController extends AbstractController
   }
 
   /**
+   * @IsGranted("ROLE_USER")
    * @Route("/decks/{id}", name="delete_deck", methods={"DELETE"})
    * @param int $id
    * @return JsonResponse

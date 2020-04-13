@@ -24,7 +24,7 @@ class HomeController extends AbstractController
     public function test()
     {
         return $this->json([
-            'message' => 'Welcome to your new controller!',
+            'message' => 'You are connected',
             'path' => 'src/Controller/HomeController.php',
         ]);
     }
