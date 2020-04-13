@@ -73,6 +73,7 @@ class SecurityController extends AbstractController
         'message' => 'Email or password not correct.',
       ], JsonResponse::HTTP_BAD_REQUEST);
     }
+    $this->tokenService->removeOldTokensByUser($user->getId());
     $token = new ApiToken($user);
     $this->entityManager->persist($token);
     $this->entityManager->flush();
